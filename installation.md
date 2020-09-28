@@ -27,3 +27,33 @@ More examples on config files are as below
 #                  'udevadm control --reload-rules' / similar command
 
 ```
+# Un-licensed Behavior
+
+If no valid license detected, the ARM 64bit Debugger would limit to 10-min demo use. The simulator would limited to 50 PRACTICE line execution quota. 
+
+# License Installation for ARM 64big Debugger
+
+1. Start ARM 64bit Debugger. e.g.
+```
+/home/zcu1023/t32/bin/pc_linux64/t32marm64 -c "/home/zcu1023/t32/config_usb.t32"
+```
+2. It might prompt the user to type in license info, if not, use the command line at the bottom with
+```
+LICENSE
+```
+A window should pop up for the user to type in license info, or just provide the path of the license file if any.
+3. Restart. Done.
+
+# License Installation for PowerView simulator
+
+1. Make sure License Installation for ARM 64big Debugger successfully installed. 
+2. Modify the config  `/home/zcu1023/t32/config_sim.t32`, add
+```
+PBI=*SIM
+USB
+```
+https://www.lauterbach.com/frames.html?sim_license.html
+3. Done
+
+
+
