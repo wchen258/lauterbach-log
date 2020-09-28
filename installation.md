@@ -52,7 +52,8 @@ A window should pop up for the user to type in license info, or just provide the
 PBI=*SIM
 USB
 ```
-https://www.lauterbach.com/frames.html?sim_license.html
+[reference](https://www.lauterbach.com/frames.html?sim_license.html)
+
 3. Done
 
 
