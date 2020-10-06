@@ -2,7 +2,7 @@
 
 To prevent debugger and target from damage it is recommended to connect or
 disconnect the debug cable only while the target power is OFF.
-# Recommendation for the software start:
+#### Recommendation for the software start:
 1. Disconnect the debug cable from the target while the target power is
 off.
 2. Connect the host system, the TRACE32 hardware and the debug
@@ -12,7 +12,7 @@ cable.
 5. Connect the debug cable to the target.
 6. Switch the target power ON.
 7. Configure your debugger e.g. via a start-up script.
-# Power down:
+#### Power down:
 1. Switch off the target power.
 2. Disconnect the debug cable from the target.
 3. Close the TRACE32 software.
