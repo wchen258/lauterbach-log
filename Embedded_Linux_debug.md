@@ -4,7 +4,7 @@ Awareness means the debugger need to be aware the existence of the Linux Kernel.
 
 https://www2.lauterbach.com/pdf/training_rtos_linux.pdf see kernel configuration.
 
-###Linux Kernel Requirement
+### Linux Kernel Requirement
 
 Below is the summary of the Lauterbach manual on Linux kernel configuration 
 
