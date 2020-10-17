@@ -1,5 +1,0 @@
-## Linux Awareness
-
-Awareness means the debugger need to be aware the existence of the Linux Kernel. To enable this, the Linux has to be compiled with certain configuration.
-
-The https://www2.lauterbach.com/pdf/training_rtos_linux.pdf
