@@ -6,7 +6,7 @@ https://www2.lauterbach.com/pdf/training_rtos_linux.pdf see kernel configuration
 
 ### Linux Kernel Requirement
 
-Below is the summary of the Lauterbach manual on Linux kernel configuration 
+Below is the summary of the Lauterbach manual on Linux kernel configuration.
 
 ```
 cat /proc/config.gz | gunzip
@@ -42,6 +42,19 @@ So do something like
 echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
 ```
 On zcu quad core dev board, this should write to 8 files in total (each CPU has 2 idle states: state0 and state1).
+
+### Lauterbach template script
+
+Lauterbach provides a nice script for Linux Run Mode debugging, for zynq-utrascale
+```
+/t32/demo/arm64/kernel/linux/board/zynq-ultrascale
+```
+Which also needs to use 
+```
+t32/demo/arm64/kernel/linux/board/generic-template/detect_translation.cmm
+```
+to fill in the <tbd> field. 
+  
 
 
 
