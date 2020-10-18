@@ -41,7 +41,7 @@ So do something like
 ```
 echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
 ```
-
+On zcu quad core dev board, this should write to 8 files in total (each CPU has 2 idle states: state0 and state1).
 
 
 
