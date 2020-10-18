@@ -37,8 +37,10 @@ The `CONFIG_CPU_IDLE` and `CONFIG_CPU_FREQ` might be set. In the manual, the fol
 
 > Alternatively, you may remove the idle-states property from the device tree if available.On some Linux distributions, power management can be disabled using specific kernel command line parameters (e.g. “`jtag=on`” or “`nohlt`”). Please refer to the documentation of the kernel command line parameters of your Linux distribution for more information. 
 
-
-
+So do something like
+```
+echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
+```
 
 
 
