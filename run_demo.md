@@ -1,10 +1,15 @@
 ## Obtain demo scripts
 
-Lauterbach provides extensive demo scripts suitable for different boards and tasks. It suggests to use demo scripts 
+Lauterbach provides extensive demo scripts suitable for different boards and tasks. It suggests to start with a suitable demo script to set up your debug session.
 
-Scripts could be downloaded here. https://www.lauterbach.com/frames.html?home.html
+For zcu102, the demo scripts come with the standard installation, which can be found in 
 
-Under the ARM64 section, download zynq_ultrascale
+```
+t32/demo/arm64/hardware/zynq_ultrascale
+```
+
+If you cannot find the demo scripts here, you can also downloaded them from this link https://www.lauterbach.com/frames.html?home.html 
+Under the ARM64 section, download zynq_ultrascale for zcu102
 
 ## Run script
 
