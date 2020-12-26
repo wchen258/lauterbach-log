@@ -1,4 +1,6 @@
-## Download necessary scripts
+## Obtain demo scripts
+
+Lauterbach provides extensive demo scripts suitable for different boards and tasks. It suggests to use a demo scripts to 
 
 Scripts could be downloaded here. https://www.lauterbach.com/frames.html?home.html
 
