@@ -23,11 +23,33 @@ It's a good idea to single step through this script (will discuss how to shortly
 
 Xilinx's [ZCU102 evaluation Board User Guide](https://www.xilinx.com/support/documentation/boards_and_kits/zcu102/ug1182-zcu102-eval-bd.pdf) contains two callout diagrams where you can conveniently find the location of each component. 
 
-Lauterbach debugger's USB cable should connect to the host machine, and the debugger's JTAG cable should connect to J6 (you can find J6 in the User Guide above, it is numbered 39 on the callout diagram). The board should be in the JTAGE boot mode. This is achieved by toggle the SW6 (switch 6 with callout number 44). In practice, if you put SW6 in SDcard boot mode, you can still run this demo script, but you have to execute the demo script before the bootloader in SDcard loads anything. Thus unless you want to debug something on the SDcard (e.g. a Linux on the card), you should put SW6 into JTAG boot mode. 
+Lauterbach debugger's USB cable should connect to the host machine, and the debugger's JTAG cable should connect to J6 (you can find J6 in the User Guide above, it is numbered 39 on the callout diagram). The board should be in the JTAGE boot mode. This is achieved by toggle on all siwtches on the SW6 (switch 6 callout number 44). In practice, if you put SW6 in SDcard boot mode, you can still run this demo script, but you have to execute the demo script before the bootloader in SDcard loads anything. Thus unless you want to debug something on the SDcard (e.g. a Linux on the card), you should put SW6 into JTAG boot mode. 
 
 
 ### run the script
 
-Simply open the PowerView application, `File -> Run script`, and choose the .cmm file. If an error occurs, try to run the reset script in `./scripts` folder. 
+The recommended steps for powering up is: power up the Lauterbach debugger hardware, start the Lauterbach debugger software (PowerView 32) through USB, and finally power up the zcu102 board. To start Latuerbach debugger software, you can refer to the installation in this tutorial. 
 
-In principle, a start-up script should be run first to set up the correct environment. It can be seen that the demo script internally invoke the `zynq-ultrascale_kick_bootcore.cmm` script in the `./scripts` folder to do the set up.
+Now on the host machine, you should be able to see the PowerView32 GUI. From the menu `File -> Open script`, and choose `zcu102-apu_sieve_smp_sram.cmm`. On the top right corner of the popped up window, you can choose "DO" to run the script from start to the end, or choose "DEBUG" to have more control over the process. 
+
+By simply hitting "DO", the debug session should be successfully established.
+
+To see in details how the debug session is established, hitting "DEBUG" instead of "DO". A new window should pop up, and you can now debug this debug script such as setting breakpoints, single step, and etc.. It's very helpful to run the script in debug mode, so that the step by step configuration can be studied. 
+
+## useful tips
+
+### convenient command
+
+The PowerView32 accept command line input at the bottom. `reset` each time when you want to run a new script. `winclear` can clear all the windows. `area` output all the useful information. You can add ` \spotlight` to a command, e.g. `register \spotlight` so that each time when the values in registers changes, the values would be highlighted. 
+
+Bottom right of the window, a number indicates which core all the information belongs to. Windows would also change background color to indicate the core it runs on. You can right click the number to switch core. 
+
+
+
+
+
+
+
+
+
+
