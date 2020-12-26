@@ -11,9 +11,11 @@ t32/demo/arm64/hardware/zynq_ultrascale
 If you cannot find the demo scripts here, you can also downloaded them from this link https://www.lauterbach.com/frames.html?home.html 
 Under the ARM64 section, download zynq_ultrascale for zcu102
 
-## Run script
+## Run a demo script
 
-Demo run for `zcu102-apu_sieve_smp_sram.cmm` (Lauterbach PRACTICE script) in `zcu102-apu` folder.
+In this session we will set up to run demo script `zcu102-apu_sieve_smp_sram.cmm` (cmm is extension for Lauterbach PRACTICE script) in `zcu102-apu` folder.
+
+### hardware setup
 
 Simply open the PowerView application, `File -> Run script`, and choose the .cmm file. If an error occurs, try to run the reset script in `./scripts` folder. 
 
