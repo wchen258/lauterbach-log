@@ -9,17 +9,24 @@ t32/demo/arm64/hardware/zynq_ultrascale
 ```
 
 If you cannot find the demo scripts here, you can also downloaded them from this [link](https://www.lauterbach.com/frames.html?home.html)
-Under the ARM64 section, download zynq_ultrascale for zcu102
+Under the download/ARM64 section, download zynq_ultrascale for zcu102
 
 ## Run a demo script
 
-In this session we will set up to run demo script `zcu102-apu_sieve_smp_sram.cmm` (cmm is extension for Lauterbach PRACTICE script) in `zcu102-apu` folder. This script set up a debug session for zcu102 and would debug `sieve_ram_aarch64_v8.elf`. You can find the source code `sieve.c` in the same directory. 
+In this session we will set up to run demo script `zcu102-apu_sieve_smp_sram.cmm` (cmm is extension for Lauterbach PRACTICE script) in `zcu102-apu` folder. This script set up a debug session for zcu102 and would debug `sieve_ram_aarch64_v8.elf`. You can find the source code `sieve.c` for the ELF in the same directory. 
 
-As the name suggests, this ELF runs [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), a prime number finding algorithm. The cmm script would invoke other cmm scripts (responsible for board setting-up like booting cores and etc.) in the directory to set up the debug session, you can also find the command that load the ELF in this script. 
+As the name suggests, this ELF runs [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), a prime number finding algorithm. The cmm script would invoke other cmm scripts (responsible for board setting-up like booting cores and etc.) in the directory to set up the debug session, in this script you can also find the command that loads the ELF. 
 
 It's a good idea to single step through this script (will discuss how to shortly) to see how the debug session is established. 
 
 ### hardware setup
+
+Xilinx's [ZCU102 evaluation Board User Guide](https://www.xilinx.com/support/documentation/boards_and_kits/zcu102/ug1182-zcu102-eval-bd.pdf) contains two callout diagrams where you can conveniently find the location of each component. 
+
+Lauterbach debugger's USB cable should connect to the host machine, and the debugger's JTAG cable should connect to J6 (you can find J6 in the User Guide above, it is numbered 39 on the callout diagram). The board should be in the JTAGE boot mode. This is achieved by toggle the SW6 (switch 6 with callout number 44). In practice, if you put SW6 in SDcard boot mode, you can still run this demo script, but you have to execute the demo script before the bootloader in SDcard loads anything. 
+
+
+### run the script
 
 Simply open the PowerView application, `File -> Run script`, and choose the .cmm file. If an error occurs, try to run the reset script in `./scripts` folder. 
 
