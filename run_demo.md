@@ -23,7 +23,7 @@ It's a good idea to single step through this script (will discuss how to shortly
 
 Xilinx's [ZCU102 evaluation Board User Guide](https://www.xilinx.com/support/documentation/boards_and_kits/zcu102/ug1182-zcu102-eval-bd.pdf) contains two callout diagrams where you can conveniently find the location of each component. 
 
-Lauterbach debugger's USB cable should connect to the host machine, and the debugger's JTAG cable should connect to J6 (you can find J6 in the User Guide above, it is numbered 39 on the callout diagram). The board should be in the JTAGE boot mode. This is achieved by toggle on all siwtches on the SW6 (switch 6 callout number 44). In practice, if you put SW6 in SDcard boot mode, you can still run this demo script, but you have to execute the demo script before the bootloader in SDcard loads anything. Thus unless you want to debug something on the SDcard (e.g. a Linux on the card), you should put SW6 into JTAG boot mode. 
+Lauterbach debugger's USB cable should connect to the host machine, and the debugger's JTAG cable should connect to J6 (you can find J6 in the User Guide above, it is numbered 39 on the callout diagram). The board should be in the JTAGE boot mode. This is achieved by toggle on all switches on the SW6 (switch 6 callout number 44). In practice, if you put SW6 in SDcard boot mode, you can still run this demo script, but you have to execute the demo script before the bootloader in SDcard loads anything. Thus unless you want to debug something on the SDcard (e.g. a Linux on the card), you should put SW6 into JTAG boot mode. 
 
 
 ### Run the script
