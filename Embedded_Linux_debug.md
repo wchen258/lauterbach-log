@@ -38,8 +38,11 @@ In theory, if the missing fields are correctly filled in, by simply running the 
 
 If the above steps do not go through, possible situations could be the following
 
-1. It's possible Lauterbach by default only works well when the linux kernel maps to a continous physical memory address block. If there are holes presented in the kernel physical memory address, Lauterbach might 
+1. It's possible Lauterbach by default only works well when the linux kernel maps to a continous physical memory address block. If there are holes presented in the kernel physical memory address, Lauterbach might not work properly. 
 
+2. When using Petalinux, the linux image is `image.ub` instead of `Image`. Be careful when you are compiling the new kernel. 
+
+3. Lauterbach requires the Linux kernel compiled with certain flags on or off. See the Linux Awareness session below. 
 
 ## Linux Awareness
 
