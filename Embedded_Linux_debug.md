@@ -4,13 +4,21 @@ Lauterbach is capable of debugging an embedded linux running on a development bo
 
 ### Requirements
 
-Below is a sequence of setting up an embedded Linux debug session. We will use SDcard boot and use the linux on the same SDcard. You might want to use Xilinx Embedded Linux Build flows, the [PetaLinux](https://www.xilinx.com/products/design-tools/embedded-software/petalinux-sdk.html#tools) to faciliate the process.
+Below is a sequence of setting up an embedded Linux debug session. We will use SDcard boot and use the linux on the same SDcard. You might want to use Xilinx Embedded Linux Build flows, the [PetaLinux](https://www.xilinx.com/products/design-tools/embedded-software/petalinux-sdk.html#tools) to faciliate the process. Also, save the corresponding vmlinux somewhere, as Lauterbach would need to load it to obtain the symbols. 
 
 Again, we are working on zcu102
 
 ### Hardware setting
 
-Use the plain JTAG debugger (do not connect with the trace debugger). Insert the SDcard, and toggle the SW6 to put the board into SDK boot mode. 
+Use the plain JTAG debugger (do not connect with the trace debugger). Insert the SDcard, and toggle the SW6 to put the board into SDK boot mode. If you are unsure of that, take a look at Xilinx's [ZCU102 evaluation Board User Guide](https://www.xilinx.com/support/documentation/boards_and_kits/zcu102/ug1182-zcu102-eval-bd.pdf). Again, connect the debug cable to J6.
+
+Verify the Linux can successfully boot from the SDcard. It's handy to connect the board to a host machine via USB, so that you can use things like minicom to communicate. 
+
+### Software setting
+
+Poweroff the target. Power on the Lauterbach debugger, and then USB launch the PowerView (if unsure, refer to the installation session). 
+
+Power on the target, and wait for the Linux finishing the booting. Sometimes the minicom might appear to be frozen due to the target is stopped by the debugger. In this case, you can simply hit `Run` on the PowerView to resume the execution. 
 
 ## Linux Awareness
 
