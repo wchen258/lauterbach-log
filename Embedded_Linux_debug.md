@@ -1,3 +1,17 @@
+Lauterbach is capable of debugging an embedded linux running on a development board. This is a guideline on how to set up. It's recommended to go through the run_demo session before setting the linux debug, as we will use some terminologies and conventions from that session. 
+
+## Quick start
+
+### Requirements
+
+Below is a sequence of setting up an embedded Linux debug session. We will use SDcard boot and use the linux on the same SDcard. You might want to use Xilinx Embedded Linux Build flows, the [PetaLinux](https://www.xilinx.com/products/design-tools/embedded-software/petalinux-sdk.html#tools) to faciliate the process.
+
+Again, we are working on zcu102
+
+### Hardware setting
+
+Use the plain JTAG debugger (do not connect with the trace debugger). Insert the SDcard, and toggle the SW6 to put the board into SDK boot mode. 
+
 ## Linux Awareness
 
 Awareness means the debugger need to be aware the existence of the Linux Kernel. To enable this, the Linux has to be compiled with certain configuration.
