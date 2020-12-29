@@ -1,4 +1,4 @@
-Lauterbach is capable of debugging an embedded linux running on a development board. This is a guideline on how to set up. It's recommended to go through the run_demo session before setting the linux debug, as we will use some terminologies and conventions from that session. 
+Lauterbach is capable of debugging an embedded linux running on a development board. This is a guideline on how to set up. It's recommended to go through the run_demo session before setting the linux debug, as we will use some terminologies and conventions from that session. `rtos_linux_stop.pdf` is useful in the `pdf` folder.
 
 ## Quick start
 
@@ -19,6 +19,27 @@ Verify the Linux can successfully boot from the SDcard. It's handy to connect th
 Poweroff the target. Power on the Lauterbach debugger, and then USB launch the PowerView (if unsure, refer to the installation session). 
 
 Power on the target, and wait for the Linux finishing the booting. Sometimes the minicom might appear to be frozen due to the target is stopped by the debugger. In this case, you can simply hit `Run` on the PowerView to resume the execution. 
+
+Following scripts will be used
+
+```
+t32/demo/arm64/kernel/linux/board/generic-template/detect_translation.cmm
+t32/demo/arm64/kernel/linux/board/zynq-ultrascale/linux-attach.cmm
+```
+
+`linux-attach.cmm` is the demo script that set up the debug session. However it has couple fields missing which users might need to fill in by themselves. Read the instruction in `linux-attach.cmm` carefully, it would guide you on how to find the missing field. 
+
+`detect_translation.cmm` is designed to find the missing fields in `linux-attach.cmm`. Again read the instruction. 
+
+In theory, if the missing fields are correctly filled in, by simply running the `linux-attach.cmm`, the debug session should be established. More details regarding the missing fields, refer to `rtos_linux_stop.pdf`.
+
+
+## More things to consider
+
+If the above steps do not go through, possible situations could be the following
+
+1. It's possible Lauterbach by default only works well when the linux kernel maps to a continous physical memory address block. If there are holes presented in the kernel physical memory address, Lauterbach might 
+
 
 ## Linux Awareness
 
@@ -64,20 +85,5 @@ So do something like
 echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
 ```
 On zcu quad core dev board, this should write to 8 files in total (each CPU has 2 idle states: state0 and state1).
-
-### Lauterbach template script
-
-Lauterbach provides a nice script for Linux Run Mode debugging, for zynq-utrascale
-```
-/t32/demo/arm64/kernel/linux/board/zynq-ultrascale
-```
-Which also needs to use 
-```
-t32/demo/arm64/kernel/linux/board/generic-template/detect_translation.cmm
-```
-to fill in the <tbd> field. 
-  
-
-
 
 
