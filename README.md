@@ -6,7 +6,7 @@ This tutorial covers **normal debug** and **trace with analyzer**. The board mig
 
 ## Current status
 situation | status
------------------------------------
+----------| ------------------------
 normal debug + standalone | success
 normal debug + embedded linux | success
 trace with analyzer + standalone | success on demo
