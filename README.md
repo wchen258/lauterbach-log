@@ -18,4 +18,4 @@ In our project, the hardware for normal debug is PowerDebug PRO, and for trace w
 
 When using an analyzer, the trace information can be exported via the equipment, thus a much larger buffer. This is referred as **Off-Chip trace**. Trace-port interface units (TPIU) on board is used in this case. To do so, the hardware design has to be configured accordingly. 
 
-> In PowerTrace32 GUI, use VERSION.HARDWARE and VERSION.HARDWARE2 to check your Lauterbach devices.
+> HINT: In PowerTrace32 GUI, use VERSION.HARDWARE and VERSION.HARDWARE2 to check your Lauterbach devices.
