@@ -1,6 +1,38 @@
-Lauterbach is capable of debugging an embedded linux running on a development board. This is a guideline on how to set up. It's recommended to go through the run_demo session before setting the linux debug, as we will use some terminologies and conventions from that session. `rtos_linux_stop.pdf` is useful in the `pdf` folder.
+Lauterbach is capable of debugging an embedded linux running on a development board. This is a guideline on how to set up for a SD card boot debug session. It's recommended to go through the run_demo session before setting the linux debug, as we will use some terminologies and conventions from that session. `rtos_linux_stop.pdf` is useful in the `pdf` folder.
 
-## Quick start
+## Quick Start
+
+This session provide a quick instruction on set-up, if it does not work or some instructions are not clear, please go through the Detailed Set-up session.
+
+### Requirements
+
+Successfully installed Lauterbach PowerView32. 
+Connect debug cable to J6 (refer to the board user guide). 
+Linux has succesffully booted from SD card.
+Disable cpuidle: the cpu could enter the idle state only if the linux kernel is compiled with `CONFIG_CPU_IDLE`, in this case, do some thing like 
+```
+echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
+```
+If the disable file does not exist, `CONFIG_CPU_IDLE` is not set, and you don't need to do anything.
+The `vmlinux` file: this file has to match the linux kernel on the SD card. 
+
+### Obtain kernel specific parameters
+In PowerView32 GUI, first enter `reset`, then load the `vmlinux` by
+```
+Data.LOAD.Elf [path the vmlinux] /NoCODE
+```
+After that, run the detection script provided by Lauterbach. The default path is
+```
+t32/demo/arm64/kernel/linux/board/generic-template/detect_translation.cmm
+```
+You can use
+```
+DO [path to the script]
+```
+Or use the GUI to run the script. 
+
+
+## Detailed Set-up
 
 ### Requirements
 
