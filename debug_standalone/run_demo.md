@@ -9,7 +9,7 @@ t32/demo/arm64/hardware/zynq_ultrascale
 ```
 
 If you cannot find the demo scripts here, you can also downloaded them from this [link](https://www.lauterbach.com/frames.html?home.html)
-Under the download/ARM64 section, download zynq_ultrascale for zcu102
+Under the download/ARM64 section, download zynq_ultrascale for zcu102. You should be able to run all example scripts in `zcu102-apu` folder except thosed marked with `offchip_trace`. For the offchip trace, refer to standalone_offchip_trace file.
 
 ## Run a JTAG debug demo script
 
