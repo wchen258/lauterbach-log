@@ -1,0 +1,48 @@
+; trying to trace the linux 
+; the kernel has compiler with all the necessary flags specified in the documents
+; trying to copy paste some code in hardware folder to set up the ETM
+
+Print "linux-attach-traced.cmm start running"
+RESet
+
+Data.load.elf /home/zcu1023/Weifan/emb-linux/traced/vmlinux /NoCODE
+
+SYStem.RESet
+SYStem.CPU ZYNQ-ULTRASCALE+-APU
+CORE.ASSIGN 1. 2. 3. 4.
+SYStem.Option MMUSPACES ON
+SYStem.Option IMASKASM ON
+
+ETM.OFF
+Trace.DISable
+
+SYStem.Mode Attach
+
+Data.LOAD.Elf /home/zcu1023/Weifan/emb-linux/traced/vmlinux /NoCODE
+
+MMU.FORMAT LINUXSWAP3 \\vmlinux\\swapper_pg_dir 0xffffffc01101d000++0xfff 0x000000000121d000
+TRANSlation.COMMON 0xf000000000000000--0xffffffffffffffff
+TRANSlation.TableWalk ON
+TRANSlation.ON
+TASK.CONFIG ~~/demo/arm64/kernel/linux/awareness/linux.t32
+MENU.ReProgram ~~/demo/arm64/kernel/linux/awareness/linux.men
+
+IF STATE.RUN()
+  Break
+
+; configure Autoloader to your needs
+sYmbol.AutoLOAD.CHECK ON ; [OFF, ON , ONGO]
+;TASK.sYmbol.Option AutoLOAD <tbd.No>Process
+;TASK.sYmbol.Option AutoLOAD <tbd.No>Module
+;TASK.sYmbol.Option AutoLOAD <tbd.No>NoLibrary
+
+Trace.METHOD ONCHIP
+Trace.TraceCONNECT ETF
+DO "/home/zcu1023/t32/demo/arm64/hardware/zynq_ultrascale/scripts/timestamps.cmm"
+ETM.Trace ON
+ETM.ON
+ETM.TImeMode AsyncTimeStamps
+
+ENDDO
+
+Print "linux-attach-traced.cmm done"
