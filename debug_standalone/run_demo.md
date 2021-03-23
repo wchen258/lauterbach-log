@@ -23,7 +23,7 @@ It's a good idea to single step through this script (will discuss how to shortly
 ```
 t32/demo/arm64/hardware/zynq_ultrascale/scripts/zynq-ultrascale_fsbl_boot.cmm
 ```
-And replace the FSBL and the ELF you want to debug. See the sample script.
+And replace the FSBL and the ELF you want to debug. See the [sample script](https://github.com/wchen258/lauterbach-log/blob/master/debug_standalone/debug_your_own_elf.cmm).
 
 ### Hardware setup
 
