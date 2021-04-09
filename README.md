@@ -10,7 +10,7 @@ situation | status
 normal debug + standalone | success
 normal debug + embedded linux | success
 trace with analyzer + standalone | success on demo
-trace with analyzer + embedded linux | in progress
+trace with analyzer + embedded linux | success 
 
 ## Trace
 
