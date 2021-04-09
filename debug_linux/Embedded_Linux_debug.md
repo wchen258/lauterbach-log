@@ -6,14 +6,14 @@ This session provide a quick instruction on set-up, if it does not work or some 
 
 ### Requirements
 
-Successfully installed Lauterbach PowerView32. 
-Connect debug cable to J6 (refer to the board user guide). 
-Linux has succesffully booted from SD card.
+Successfully installed Lauterbach PowerView32. \
+Connect debug cable to J6 (refer to the board user guide).\ 
+Linux has succesffully booted from SD card.\
 Disable cpuidle: the cpu could enter the idle state only if the linux kernel is compiled with `CONFIG_CPU_IDLE`, in this case, do some thing like 
 ```
 echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
 ```
-If the disable file does not exist, `CONFIG_CPU_IDLE` is not set, and you don't need to do anything.
+If the disable file does not exist, `CONFIG_CPU_IDLE` is not set, and you don't need to do anything.\
 The `vmlinux` file: this file has to match the linux kernel on the SD card. 
 
 ### Obtain kernel specific parameters
