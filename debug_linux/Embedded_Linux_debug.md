@@ -7,7 +7,7 @@ This session provide a quick instruction on set-up, if it does not work or some 
 ### Requirements
 
 Successfully installed Lauterbach PowerView32. \
-Connect debug cable to J6 (refer to the board user guide).\ 
+Connect debug cable to J6 (refer to the board user guide).\
 Linux has succesffully booted from SD card.\
 Disable cpuidle: the cpu could enter the idle state only if the linux kernel is compiled with `CONFIG_CPU_IDLE`, in this case, do some thing like 
 ```
