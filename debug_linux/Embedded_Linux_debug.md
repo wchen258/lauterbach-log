@@ -83,6 +83,8 @@ If the above steps do not go through, possible situations could be the following
 
 2. Lauterbach requires the Linux kernel compiled with certain flags on or off. See the Linux Awareness session below. 
 
+3. Most likely, you also need the source code to be displayed while debuggin. When using Petalinux, follow the accepted answer in this [post](https://forums.xilinx.com/t5/Embedded-Linux/Petalinux-where-can-I-find-the-kernel-sources-in-a-Petalinux/td-p/811189) to compile kernel with code.  
+
 ## Linux Awareness
 
 Awareness means the debugger need to be aware the existence of the Linux Kernel. To enable this, the Linux has to be compiled with certain configuration.
