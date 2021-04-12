@@ -116,6 +116,11 @@ The following options should be set
 CONFIG_KALLSYMS=y
 CONFIG_DEBUG_INFO=y
 ```
+It's also recommended enable the following option to better work with trace.
+```
+CONFIG_PID_IN_CONTEXTIDR=y
+```
+
 The `CONFIG_CPU_IDLE` and `CONFIG_CPU_FREQ` might be set. In the manual, the following instructions could be referenced without recompile the kernel.
 
 > The Linux kernel CPU power management could cause for some processor architectures that single cores are not accessible by the debugger when in power saving state. CPU power management can be disabled in the Linux kernel configuration by disabling the options `CONFIG_CPU_IDLE` and` CONFIG_CPU_FREQ`.Idle states can also be disabled for single cores from the shell by writing to the file `/sys/devices/system/cpu/cpu<x>/cpuidle/state<x>/disable`. 
@@ -124,7 +129,7 @@ The `CONFIG_CPU_IDLE` and `CONFIG_CPU_FREQ` might be set. In the manual, the fol
 
 So do something like
 ```
-echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable)
+echo 1 | tee $(ls /sys/devices/system/cpu/cpu?/cpuidle/state?/disable) 2> /dev/null
 ```
 On zcu quad core dev board, this should write to 8 files in total (each CPU has 2 idle states: state0 and state1).
 
